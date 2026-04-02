@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Inter:wght@400;500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-secondary": "#e7f5ff",
+              "surface-dim": "#d1d5d7",
+              "secondary-fixed-dim": "#6eceff",
+              "primary-dim": "#94214a",
+              "on-tertiary": "#e0f6ff",
+              "inverse-surface": "#0c0f10",
+              "on-secondary-container": "#004d69",
+              "tertiary-fixed-dim": "#7ad0ea",
+              "outline-variant": "#abadae",
+              "on-primary-fixed": "#000000",
+              "tertiary-container": "#88def8",
+              "on-secondary-fixed-variant": "#005776",
+              "error-container": "#fb5151",
+              "on-tertiary-container": "#004e5f",
+              "error": "#b31b25",
+              "on-tertiary-fixed-variant": "#00596b",
+              "primary-fixed": "#fc739a",
+              "tertiary-dim": "#00576a",
+              "outline": "#757778",
+              "secondary-fixed": "#98daff",
+              "inverse-on-surface": "#9b9d9e",
+              "on-surface": "#2c2f30",
+              "surface-bright": "#f5f6f7",
+              "on-tertiary-fixed": "#003a47",
+              "primary-fixed-dim": "#ec668d",
+              "surface-container-lowest": "#ffffff",
+              "on-surface-variant": "#595c5d",
+              "on-error": "#ffefee",
+              "surface-container-high": "#e0e3e4",
+              "inverse-primary": "#f97097",
+              "on-error-container": "#570008",
+              "primary": "#a42e56",
+              "surface-tint": "#a42e56",
+              "secondary-dim": "#005674",
+              "primary-container": "#fc739a",
+              "error-dim": "#9f0519",
+              "on-primary": "#ffeff1",
+              "surface-container-low": "#eff1f2",
+              "surface": "#f5f6f7",
+              "on-background": "#2c2f30",
+              "on-secondary-fixed": "#00394e",
+              "surface-container": "#e6e8ea",
+              "background": "#f5f6f7",
+              "tertiary-fixed": "#88def8",
+              "surface-variant": "#dadddf",
+              "on-primary-container": "#4c001f",
+              "tertiary": "#006479",
+              "secondary-container": "#98daff",
+              "on-primary-fixed-variant": "#5e0028",
+              "secondary": "#006385",
+              "surface-container-highest": "#dadddf"
+            },
+            fontFamily: {
+              "headline": ["Plus Jakarta Sans"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "12px", "xl": "16px", "2xl": "24px", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        body {
+            font-family: 'Inter', 'HarmonyOS Sans SC', sans-serif;
+            background-color: #f9fafb;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(24px);
+        }
+    </style>
+</head>
+<body class="text-on-surface flex min-h-screen overflow-hidden" data-page="console">
+<!-- SideNavBar Shell -->
+<aside class="h-screen w-64 border-r border-zinc-200/20 bg-[#f5f6f7] flex flex-col p-4 space-y-2 shrink-0">
+<div class="px-4 py-6 mb-4">
+<h1 class="text-2xl font-bold bg-gradient-to-r from-[#a42e56] to-[#fc739a] bg-clip-text text-transparent">BiliGlass</h1>
+<p class="text-xs text-on-surface-variant tracking-wider mt-1">Subtitle Extraction</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 bg-white text-[#fc739a] shadow-sm rounded-xl font-medium transition-all duration-300" href="../_2/code.html">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span>控制台</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-zinc-500 hover:bg-zinc-200/50 rounded-xl hover:translate-x-1 transition-all duration-300" href="../_3/code.html">
+<span class="material-symbols-outlined">inventory_2</span>
+<span>任务库</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-zinc-500 hover:bg-zinc-200/50 rounded-xl hover:translate-x-1 transition-all duration-300" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span>系统设置</span>
+</a>
+</nav>
+<div class="mt-auto p-4 bg-white/50 rounded-2xl flex items-center gap-3 border border-zinc-100">
+<img alt="User Avatar" class="w-10 h-10 rounded-full border-2 border-primary-container" data-alt="close-up portrait of a stylized anime character with soft lighting and pink highlights" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSWCVS3fkF7Lww7dZjY3Nri_jo8lbvjZdh6SudOeQ8LQNx7i1JKqSoGg2RWpr1DTavYRkKSjX1e4rXy338XRwq7IRtF1A3Cv9UQMXpBYNyZJPZZGmarxgvcKaq9oA6pesYN8YmHXcJlYIgfQISk5UDE-mHXJisbxCqMFHY1YIAHd0Tjgsod1iRLdrOtroZOtnuoQlW2t0wtNL4tAmEBc7wYNJy1g5RjAFxXIRlKSeTzPYcxoprQjoxBxRmLLv_s_82bDW0K7eMhQM"/>
+<div class="overflow-hidden">
+<p class="text-sm font-semibold truncate">Pro User</p>
+<p class="text-[10px] text-on-surface-variant uppercase tracking-tighter">v2.4.0-pro</p>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 flex flex-col overflow-hidden">
+<!-- TopAppBar Shell -->
+<header class="bg-white/70 backdrop-blur-xl docked full-width top-0 sticky z-50 flex justify-between items-center px-8 py-4 w-full border-b border-zinc-100/10 shadow-[0_8px_32px_0_rgba(164,46,86,0.06)]">
+<div class="flex items-center gap-4">
+<h2 class="font-headline font-bold text-xl tracking-tight text-on-surface">控制台</h2>
+<span class="px-2 py-0.5 rounded bg-primary/10 text-primary text-[10px] font-bold uppercase tracking-widest">Active</span>
+</div>
+<div class="flex items-center gap-3">
+<div class="flex items-center gap-2 mr-4">
+<button class="p-2 text-zinc-500 hover:bg-[#fc739a]/10 transition-colors duration-300 rounded-lg active:scale-95">
+<span class="material-symbols-outlined">cookie</span>
+</button>
+<button class="p-2 text-zinc-500 hover:bg-[#fc739a]/10 transition-colors duration-300 rounded-lg active:scale-95">
+<span class="material-symbols-outlined">memory</span>
+</button>
+<button class="p-2 text-zinc-500 hover:bg-[#fc739a]/10 transition-colors duration-300 rounded-lg active:scale-95">
+<span class="material-symbols-outlined">storage</span>
+</button>
+</div>
+<button class="bg-primary text-on-primary px-5 py-2.5 rounded-xl font-medium text-sm flex items-center gap-2 shadow-lg shadow-primary/20 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-[20px]">add</span>
+                    新建任务
+                </button>
+</div>
+</header>
+<!-- Scrollable Content -->
+<div class="flex-1 overflow-y-auto p-8 space-y-8">
+<!-- Section 1: Initialize Extraction (Bento Style) -->
+<section class="max-w-6xl mx-auto">
+<div class="bg-surface-container-lowest rounded-2xl p-8 shadow-[0_4px_6px_-1px_rgba(0,0,0,0.05)] border border-white/50 relative overflow-hidden">
+<div class="absolute top-0 right-0 -mt-12 -mr-12 w-64 h-64 bg-primary/5 rounded-full blur-3xl"></div>
+<div class="relative z-10">
+<h3 class="font-headline text-2xl font-bold mb-2">初始化提取</h3>
+<p class="text-on-surface-variant mb-8 text-sm max-w-lg">输入 Bilibili 视频链接，我们将通过 AI 高效识别并提取精准的双语或单语字幕。</p>
+<div class="flex flex-col md:flex-row gap-4 items-stretch">
+<div class="flex-1 relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant">link</span>
+<input id="biliglass-console-input" class="w-full bg-surface-container-low border-0 rounded-xl pl-12 pr-4 py-4 text-sm focus:ring-2 focus:ring-primary/20 transition-all placeholder:text-zinc-400" placeholder="粘贴视频地址 (BV/av 或 网页链接)..." type="text"/>
+</div>
+<button id="biliglass-console-add" class="bg-[#FB7299] hover:bg-[#fc739a] text-white px-8 py-4 rounded-xl font-bold shadow-md shadow-[#FB7299]/20 transition-all active:scale-95 flex items-center justify-center gap-2 whitespace-nowrap">
+                                加入队列
+                                <span class="material-symbols-outlined">rocket_launch</span>
+</button>
+<button id="biliglass-console-start" class="bg-white hover:bg-surface-container-low text-[#FB7299] border border-[#FB7299]/20 px-8 py-4 rounded-xl font-bold shadow-sm transition-all active:scale-95 flex items-center justify-center gap-2 whitespace-nowrap">
+                                开始处理
+                                <span class="material-symbols-outlined">play_arrow</span>
+</button>
+</div>
+<div class="mt-4 flex flex-col md:flex-row md:items-center md:justify-between gap-3 rounded-2xl border border-white/60 bg-white/70 px-4 py-4 shadow-sm">
+<div>
+<p class="text-sm font-bold text-on-surface">本地文件转文字稿</p>
+<p class="text-xs text-on-surface-variant mt-0.5">上传 mp3 / mp4 或选择文件夹，进入独立转写页面</p>
+</div>
+<button id="biliglass-open-local-page" class="inline-flex items-center justify-center gap-2 rounded-xl bg-primary text-white px-5 py-3 text-sm font-bold shadow-lg shadow-primary/20 transition-all active:scale-95">
+<span class="material-symbols-outlined text-[18px]">folder_open</span>
+                进入本地转写页
+              </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 2: Status Cards -->
+<section class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Cookie Status -->
+<div class="bg-surface-container-lowest p-6 rounded-2xl border border-white/50 shadow-sm flex items-start justify-between">
+<div>
+<p class="text-xs font-bold text-on-surface-variant uppercase tracking-widest mb-1">Cookie 状态</p>
+<h4 class="text-xl font-bold">已登录</h4>
+<p class="text-xs text-tertiary mt-2 flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+                            会员特权已激活
+                        </p>
+</div>
+<div class="p-3 rounded-xl bg-tertiary/10 text-tertiary">
+<span class="material-symbols-outlined">cookie</span>
+</div>
+</div>
+<!-- GPU Acceleration -->
+<div class="bg-surface-container-lowest p-6 rounded-2xl border border-white/50 shadow-sm flex items-start justify-between">
+<div>
+<p class="text-xs font-bold text-on-surface-variant uppercase tracking-widest mb-1">GPU 加速</p>
+<h4 class="text-xl font-bold">RTX 4090</h4>
+<p class="text-xs text-primary mt-2 flex items-center gap-1">
+                            负载: 12% | 温度: 42°C
+                        </p>
+</div>
+<div class="p-3 rounded-xl bg-primary/10 text-primary">
+<span class="material-symbols-outlined">memory</span>
+</div>
+</div>
+<!-- Storage -->
+<div class="bg-surface-container-lowest p-6 rounded-2xl border border-white/50 shadow-sm flex items-start justify-between">
+<div>
+<p class="text-xs font-bold text-on-surface-variant uppercase tracking-widest mb-1">存储容量</p>
+<h4 class="text-xl font-bold">128.5 GB</h4>
+<div class="w-32 h-1.5 bg-surface-container-low rounded-full mt-3 overflow-hidden">
+<div class="h-full bg-secondary-fixed-dim w-[65%]"></div>
+</div>
+</div>
+<div class="p-3 rounded-xl bg-secondary-container/30 text-secondary">
+<span class="material-symbols-outlined">storage</span>
+</div>
+</div>
+</section>
+<!-- Section 3: Active Synthesis Queue -->
+<section class="max-w-6xl mx-auto">
+<div class="flex items-center justify-between mb-6">
+<h3 class="font-headline text-xl font-bold">正在处理的任务队列</h3>
+<div class="flex items-center gap-2">
+<span class="text-xs font-medium px-3 py-1 bg-surface-container-high rounded-full">2 正在处理</span>
+<span class="text-xs font-medium px-3 py-1 bg-surface-container-low rounded-full text-on-surface-variant">0 等待中</span>
+</div>
+</div>
+<div class="space-y-4">
+<!-- Task Card 1 -->
+<div class="bg-surface-container-lowest p-5 rounded-2xl border border-white/50 shadow-sm hover:shadow-md transition-shadow group">
+<div class="flex flex-col lg:flex-row gap-6 items-center">
+<!-- Thumbnail -->
+<div class="w-full lg:w-48 aspect-video rounded-xl bg-surface-container-high overflow-hidden relative shrink-0">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="close-up of a high-tech computer screen displaying lines of complex code with vibrant cyberpunk aesthetics" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6s5xi439vk73W2CSEExSvROm8gdQb1l0c0kf3xAiQNFD_If62HuchdP6HoCV6jVM0ykY91JzciCQEMRMzGosL1ZCivSswhJ7hl8gobJuMjM8RIpEyaIzbt43h2OHpMj-UG_nu3WnlcwS4MhtAMaSQt3oudFcqoqRb96iZeLi4aXAZ7NT2dfMODu1HtcleQ0xD6P_YFF_Y12LvwCH-lfvsUjpDg1ON8SFu8x4LSfe7TgBIVXTeYtvaSct5uJCvDITkZVTwxF3qMGw"/>
+<div class="absolute inset-0 bg-black/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-3xl">play_circle</span>
+</div>
+<div class="absolute bottom-2 right-2 px-1.5 py-0.5 bg-black/60 text-white text-[10px] rounded">12:45</div>
+</div>
+<!-- Info -->
+<div class="flex-1 min-w-0 py-1">
+<div class="flex items-start justify-between mb-2">
+<div>
+<h4 class="font-bold text-lg leading-snug truncate">全栈工程师的 2024 开发环境搭建指南</h4>
+<div class="flex items-center gap-3 mt-1 text-xs text-on-surface-variant">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">person</span> UP: 科技猿</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">id_card</span> BV1xP411L7Sg</span>
+</div>
+</div>
+<div class="text-right">
+<p class="text-sm font-bold text-primary">74%</p>
+<p class="text-[10px] text-on-surface-variant uppercase tracking-widest mt-0.5">剩余约 2m</p>
+</div>
+</div>
+<!-- Progress -->
+<div class="space-y-2">
+<div class="w-full h-2.5 bg-surface-container-low rounded-full overflow-hidden">
+<div class="h-full bg-gradient-to-r from-primary to-primary-container rounded-full w-[74%] transition-all duration-1000"></div>
+</div>
+<div class="flex items-center justify-between text-[11px] font-medium text-on-surface-variant">
+<div class="flex gap-4">
+<span class="flex items-center gap-1 text-tertiary">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                                                视频下载
+                                            </span>
+<span class="flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-sm">sync</span>
+                                                语音识别
+                                            </span>
+<span class="flex items-center gap-1 opacity-40">
+                                                字幕校对
+                                            </span>
+</div>
+</div>
+</div>
+</div>
+<!-- Actions -->
+<div class="flex lg:flex-col gap-2 shrink-0">
+<button class="p-3 text-on-surface-variant hover:text-error hover:bg-error/10 rounded-xl transition-colors active:scale-95">
+<span class="material-symbols-outlined">pause_circle</span>
+</button>
+<button class="p-3 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high rounded-xl transition-colors active:scale-95">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Task Card 2 -->
+<div class="bg-surface-container-lowest p-5 rounded-2xl border border-white/50 shadow-sm hover:shadow-md transition-shadow group">
+<div class="flex flex-col lg:flex-row gap-6 items-center">
+<div class="w-full lg:w-48 aspect-video rounded-xl bg-surface-container-high overflow-hidden relative shrink-0">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="abstract cosmic landscape with glowing purple and magenta nebulae and distant stars in deep space" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQ2c5c9nIwJbJE7H7ixAQt5UFfgigoj26P8PyOa7EDUvfO_h-TD5LqVmqmz0I3UxB5c5UlshSXicGrsWC4Nj0NcU1CHEaE53k5O6G_fpXkCbP0qBY-4LGD-9_OGhGO-9H1zDuVPVeJHohQztyXelsMMhggkkBJzpdEn1s-M29p8JlBZe6IhV0_YRy3N3YUQbfWDjay3wQ0vVQL1U2m2tbhIODEyBjpz2nUbgRGTkI_jL0RVX9z1xJW9V4UbjTODV51AabWzd1tXEY"/>
+<div class="absolute inset-0 bg-black/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-3xl">play_circle</span>
+</div>
+<div class="absolute bottom-2 right-2 px-1.5 py-0.5 bg-black/60 text-white text-[10px] rounded">05:20</div>
+</div>
+<div class="flex-1 min-w-0 py-1">
+<div class="flex items-start justify-between mb-2">
+<div>
+<h4 class="font-bold text-lg leading-snug truncate">【4K】绝美宇宙深处：詹姆斯韦伯望远镜最新影像</h4>
+<div class="flex items-center gap-3 mt-1 text-xs text-on-surface-variant">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">person</span> UP: 天文馆长</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">id_card</span> BV1uG411G7Wp</span>
+</div>
+</div>
+<div class="text-right">
+<p class="text-sm font-bold text-primary">18%</p>
+<p class="text-[10px] text-on-surface-variant uppercase tracking-widest mt-0.5">剩余约 8m</p>
+</div>
+</div>
+<div class="space-y-2">
+<div class="w-full h-2.5 bg-surface-container-low rounded-full overflow-hidden">
+<div class="h-full bg-gradient-to-r from-primary to-primary-container rounded-full w-[18%] transition-all duration-1000"></div>
+</div>
+<div class="flex items-center justify-between text-[11px] font-medium text-on-surface-variant">
+<div class="flex gap-4">
+<span class="flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-sm">downloading</span>
+                                                视频下载
+                                            </span>
+<span class="flex items-center gap-1 opacity-40">
+                                                语音识别
+                                            </span>
+</div>
+</div>
+</div>
+</div>
+<div class="flex lg:flex-col gap-2 shrink-0">
+<button class="p-3 text-on-surface-variant hover:text-error hover:bg-error/10 rounded-xl transition-colors active:scale-95">
+<span class="material-symbols-outlined">pause_circle</span>
+</button>
+<button class="p-3 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high rounded-xl transition-colors active:scale-95">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Runtime Logs -->
+<section class="max-w-6xl mx-auto">
+<div class="bg-surface-container-lowest rounded-3xl p-8 shadow-[0_8px_32px_0_rgba(164,46,86,0.04)] border border-white">
+<div class="flex items-center justify-between gap-4 mb-4">
+<div>
+<h3 class="font-headline text-xl font-bold">运行日志</h3>
+<p class="text-sm text-on-surface-variant">显示后端实时状态、任务加入、下载、转录和错误信息</p>
+</div>
+<span class="text-xs font-medium px-3 py-1 bg-surface-container-high rounded-full" id="log-count">0 条记录</span>
+</div>
+<div class="bg-surface-container-low rounded-2xl p-4 max-h-80 overflow-y-auto overscroll-contain scroll-smooth">
+<div id="runtime-log-list" class="space-y-2 text-sm font-mono text-on-surface">
+<div class="text-on-surface-variant">等待后端日志...</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer Shell -->
+<footer class="bg-white/70 backdrop-blur-md px-8 py-3 border-t border-zinc-100 flex justify-between items-center w-full">
+<p class="text-[10px] text-zinc-400 font-headline uppercase tracking-[0.2em]">v2.4.0-pro | System Load: 12%</p>
+<div class="flex gap-6">
+<a class="text-[10px] text-zinc-400 font-headline uppercase tracking-widest hover:text-[#fc739a] transition-colors" href="#">GitHub</a>
+<a class="text-[10px] text-zinc-400 font-headline uppercase tracking-widest hover:text-[#fc739a] transition-colors" href="#">Documentation</a>
+<a class="text-[10px] text-zinc-400 font-headline uppercase tracking-widest hover:text-[#fc739a] transition-colors" href="#">Support</a>
+</div>
+</footer>
+</main>
+<script defer src="../biliglass_pro/app.js"></script>
+</body></html>

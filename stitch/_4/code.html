@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-secondary": "#e7f5ff",
+              "surface-dim": "#d1d5d7",
+              "secondary-fixed-dim": "#6eceff",
+              "primary-dim": "#94214a",
+              "on-tertiary": "#e0f6ff",
+              "inverse-surface": "#0c0f10",
+              "on-secondary-container": "#004d69",
+              "tertiary-fixed-dim": "#7ad0ea",
+              "outline-variant": "#abadae",
+              "on-primary-fixed": "#000000",
+              "tertiary-container": "#88def8",
+              "on-secondary-fixed-variant": "#005776",
+              "error-container": "#fb5151",
+              "on-tertiary-container": "#004e5f",
+              "error": "#b31b25",
+              "on-tertiary-fixed-variant": "#00596b",
+              "primary-fixed": "#fc739a",
+              "tertiary-dim": "#00576a",
+              "outline": "#757778",
+              "secondary-fixed": "#98daff",
+              "inverse-on-surface": "#9b9d9e",
+              "on-surface": "#2c2f30",
+              "surface-bright": "#f5f6f7",
+              "on-tertiary-fixed": "#003a47",
+              "primary-fixed-dim": "#ec668d",
+              "surface-container-lowest": "#ffffff",
+              "on-surface-variant": "#595c5d",
+              "on-error": "#ffefee",
+              "surface-container-high": "#e0e3e4",
+              "inverse-primary": "#f97097",
+              "on-error-container": "#570008",
+              "primary": "#a42e56",
+              "surface-tint": "#a42e56",
+              "secondary-dim": "#005674",
+              "primary-container": "#fc739a",
+              "error-dim": "#9f0519",
+              "on-primary": "#ffeff1",
+              "surface-container-low": "#eff1f2",
+              "surface": "#f5f6f7",
+              "on-background": "#2c2f30",
+              "on-secondary-fixed": "#00394e",
+              "surface-container": "#e6e8ea",
+              "background": "#f5f6f7",
+              "tertiary-fixed": "#88def8",
+              "surface-variant": "#dadddf",
+              "on-primary-container": "#4c001f",
+              "tertiary": "#006479",
+              "secondary-container": "#98daff",
+              "on-primary-fixed-variant": "#5e0028",
+              "secondary": "#006385",
+              "surface-container-highest": "#dadddf"
+            },
+            fontFamily: {
+              "headline": ["Plus Jakarta Sans"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "12px", "xl": "16px", "2xl": "24px", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        body {
+            font-family: 'Inter', 'HarmonyOS Sans SC', sans-serif;
+            background-color: #f9fafb;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(24px);
+        }
+    </style>
+</head>
+<body class="text-on-surface flex min-h-screen overflow-hidden" data-page="local-transcribe">
+<aside class="h-screen w-64 border-r border-zinc-200/20 bg-[#f5f6f7] flex flex-col p-4 space-y-2 shrink-0">
+<div class="px-4 py-6 mb-4">
+<h1 class="text-2xl font-bold bg-gradient-to-r from-[#a42e56] to-[#fc739a] bg-clip-text text-transparent">BiliGlass</h1>
+<p class="text-xs text-on-surface-variant tracking-wider mt-1">Local Transcript</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-zinc-500 hover:bg-zinc-200/50 rounded-xl hover:translate-x-1 transition-all duration-300" href="../_2/code.html">
+<span class="material-symbols-outlined">dashboard</span>
+<span>控制台</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-white text-[#fc739a] shadow-sm rounded-xl font-medium transition-all duration-300" href="../_4/code.html">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">audio_file</span>
+<span>本地转写</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-zinc-500 hover:bg-zinc-200/50 rounded-xl hover:translate-x-1 transition-all duration-300" href="../_1/code.html">
+<span class="material-symbols-outlined">settings</span>
+<span>系统设置</span>
+</a>
+</nav>
+<div class="mt-auto p-4 bg-white/50 rounded-2xl flex items-center gap-3 border border-zinc-100">
+<div class="w-10 h-10 rounded-full bg-primary-container/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-[#fc739a]">audio_file</span>
+</div>
+<div class="overflow-hidden">
+<p class="text-sm font-semibold truncate">Local Transcript</p>
+<p class="text-[10px] text-on-surface-variant uppercase tracking-tighter">v2.4.0-pro</p>
+</div>
+</div>
+</aside>
+<main class="flex-1 flex flex-col overflow-hidden">
+<header class="bg-white/70 backdrop-blur-xl docked full-width top-0 sticky z-50 flex justify-between items-center px-8 py-4 w-full border-b border-zinc-100/10 shadow-[0_8px_32px_0_rgba(164,46,86,0.06)]">
+<div class="flex items-center gap-4">
+<h2 class="font-headline font-bold text-xl tracking-tight text-on-surface">本地文件转写</h2>
+<span class="px-2 py-0.5 rounded bg-primary/10 text-primary text-[10px] font-bold uppercase tracking-widest">Active</span>
+</div>
+<div class="flex items-center gap-3">
+<a href="../_2/code.html" class="bg-white hover:bg-surface-container-low text-[#FB7299] border border-[#FB7299]/20 px-4 py-2 rounded-xl font-bold shadow-sm transition-all active:scale-95 inline-flex items-center gap-2 whitespace-nowrap">
+<span class="material-symbols-outlined text-[20px]">arrow_back</span>
+返回控制台
+</a>
+</div>
+</header>
+<div class="flex-1 overflow-y-auto p-8 space-y-8">
+<section class="max-w-6xl mx-auto">
+<div class="bg-surface-container-lowest rounded-2xl p-8 shadow-[0_4px_6px_-1px_rgba(0,0,0,0.05)] border border-white/50 relative overflow-hidden">
+<div class="absolute top-0 right-0 -mt-12 -mr-12 w-64 h-64 bg-primary/5 rounded-full blur-3xl"></div>
+<div class="relative z-10 flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
+<div>
+<h3 class="font-headline text-2xl font-bold mb-2">导入本地文件</h3>
+<p class="text-on-surface-variant text-sm max-w-2xl">选择单个音视频文件，或选择一个文件夹批量导入当前层文件。上传后会直接进入转写队列，生成统一风格的文字稿。</p>
+</div>
+<div class="flex flex-wrap gap-2 text-[11px] font-bold uppercase tracking-widest text-[#fc739a]">
+<span class="px-3 py-1.5 rounded-full bg-primary-container/15">mp3</span>
+<span class="px-3 py-1.5 rounded-full bg-primary-container/15">mp4</span>
+<span class="px-3 py-1.5 rounded-full bg-primary-container/15">文件夹</span>
+</div>
+</div>
+</div>
+</section>
+<section class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="bg-surface-container-lowest p-6 rounded-2xl border border-white/50 shadow-sm flex items-start justify-between">
+<div>
+<p class="text-xs font-bold text-on-surface-variant uppercase tracking-widest mb-1">本地任务</p>
+<h4 class="text-3xl font-bold" id="biliglass-local-total">0</h4>
+<p class="text-xs text-tertiary mt-2">当前页面可见的本地任务数</p>
+</div>
+<div class="p-3 rounded-xl bg-tertiary/10 text-tertiary">
+<span class="material-symbols-outlined">audio_file</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-2xl border border-white/50 shadow-sm flex items-start justify-between">
+<div>
+<p class="text-xs font-bold text-on-surface-variant uppercase tracking-widest mb-1">转写中</p>
+<h4 class="text-3xl font-bold" id="biliglass-local-running">0</h4>
+<p class="text-xs text-primary mt-2">正在进行语音识别</p>
+</div>
+<div class="p-3 rounded-xl bg-primary/10 text-primary">
+<span class="material-symbols-outlined">graphic_eq</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-2xl border border-white/50 shadow-sm flex items-start justify-between">
+<div>
+<p class="text-xs font-bold text-on-surface-variant uppercase tracking-widest mb-1">已完成</p>
+<h4 class="text-3xl font-bold" id="biliglass-local-completed">0</h4>
+<p class="text-xs text-tertiary mt-2">完成后可直接打开目录</p>
+</div>
+<div class="p-3 rounded-xl bg-tertiary/10 text-tertiary">
+<span class="material-symbols-outlined">check_circle</span>
+</div>
+</div>
+</section>
+<section class="max-w-6xl mx-auto">
+<div class="bg-surface-container-lowest rounded-3xl p-8 shadow-[0_8px_32px_0_rgba(164,46,86,0.04)] border border-white">
+<div class="flex items-center justify-between gap-4 mb-6">
+<div>
+<h3 class="font-headline text-xl font-bold">选择与上传</h3>
+<p class="text-sm text-on-surface-variant">支持单文件、拖拽和文件夹选择。文件夹仅处理当前层，不递归子目录。</p>
+</div>
+<div class="flex gap-2">
+<button id="biliglass-local-choose-file" class="bg-primary text-white px-4 py-2.5 rounded-xl font-bold shadow-lg shadow-primary/20 transition-all active:scale-95 inline-flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">attach_file</span>
+选择文件
+</button>
+<button id="biliglass-local-choose-folder" class="bg-white text-[#FB7299] border border-[#FB7299]/20 px-4 py-2.5 rounded-xl font-bold shadow-sm transition-all active:scale-95 inline-flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">folder_open</span>
+选择文件夹
+</button>
+<button id="biliglass-local-upload" class="bg-[#FB7299] text-white px-4 py-2.5 rounded-xl font-bold shadow-md shadow-[#FB7299]/20 transition-all active:scale-95 inline-flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">cloud_upload</span>
+上传并转写
+</button>
+</div>
+</div>
+<div id="biliglass-local-dropzone" class="rounded-3xl border border-dashed border-white/70 bg-white/70 p-8 transition-all">
+<div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
+<div class="flex items-start gap-4">
+<div class="w-14 h-14 rounded-2xl bg-primary/10 text-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[28px]">drag_indicator</span>
+</div>
+<div>
+<p class="text-base font-bold text-on-surface">拖拽文件到这里</p>
+<p class="text-sm text-on-surface-variant mt-1">也可以使用上方按钮选择单个文件或文件夹，上传后会自动进入任务队列。</p>
+<p class="text-xs text-on-surface-variant mt-3">当前选择：<span id="biliglass-local-selection-count">0 个文件</span></p>
+<p class="text-xs text-on-surface-variant mt-1 break-words" id="biliglass-local-selection-summary">尚未选择文件</p>
+</div>
+</div>
+<button id="biliglass-local-clear" class="self-start px-4 py-2 rounded-xl bg-surface-container-low text-on-surface-variant font-bold hover:bg-surface-container-high transition-colors">清空选择</button>
+</div>
+</div>
+<input id="biliglass-local-files" type="file" multiple accept="audio/*,video/*,.mp3,.mp4,.m4a,.wav,.flac,.aac,.mov,.mkv,.avi,.webm" class="hidden"/>
+<input id="biliglass-local-folder" type="file" multiple webkitdirectory directory class="hidden"/>
+</div>
+</section>
+<section class="max-w-6xl mx-auto">
+<div class="flex items-center justify-between mb-6">
+<h3 class="font-headline text-xl font-bold">本地任务队列</h3>
+<div class="flex items-center gap-2">
+<span class="text-xs font-medium px-3 py-1 bg-surface-container-high rounded-full"><span id="biliglass-local-running-inline">0</span> 转写中</span>
+<span class="text-xs font-medium px-3 py-1 bg-surface-container-low rounded-full text-on-surface-variant"><span id="biliglass-local-failed">0</span> 失败</span>
+</div>
+</div>
+<div class="space-y-4" id="biliglass-local-task-list"></div>
+</section>
+<section class="max-w-6xl mx-auto">
+<div class="bg-surface-container-lowest rounded-3xl p-8 shadow-[0_8px_32px_0_rgba(164,46,86,0.04)] border border-white">
+<div class="flex items-center justify-between gap-4 mb-4">
+<div>
+<h3 class="font-headline text-xl font-bold">运行日志</h3>
+<p class="text-sm text-on-surface-variant">显示本地导入、转写进度和错误信息</p>
+</div>
+<span class="text-xs font-medium px-3 py-1 bg-surface-container-high rounded-full" id="log-count">0 条记录</span>
+</div>
+<div class="bg-surface-container-low rounded-2xl p-4 max-h-80 overflow-y-auto overscroll-contain scroll-smooth">
+<div id="runtime-log-list" class="space-y-2 text-sm font-mono text-on-surface">
+<div class="text-on-surface-variant">等待导入文件...</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+<footer class="bg-white/70 backdrop-blur-md px-8 py-3 border-t border-zinc-100 flex justify-between items-center w-full">
+<p class="text-[10px] text-zinc-400 font-headline uppercase tracking-[0.2em]">v2.4.0-pro | System Load: 12%</p>
+<div class="flex gap-6">
+<a class="text-[10px] text-zinc-400 font-headline uppercase tracking-widest hover:text-[#fc739a] transition-colors" href="#">GitHub</a>
+<a class="text-[10px] text-zinc-400 font-headline uppercase tracking-widest hover:text-[#fc739a] transition-colors" href="#">Documentation</a>
+<a class="text-[10px] text-zinc-400 font-headline uppercase tracking-widest hover:text-[#fc739a] transition-colors" href="#">Support</a>
+</div>
+</footer>
+</main>
+<script defer src="../biliglass_pro/app.js"></script>
+</body></html>
