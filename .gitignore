@@ -1,0 +1,36 @@
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Logs and temp files
+*.log
+.trae/**/logs/
+.trae/**/__pycache__/
+.trae/documents/
+
+# Sensitive credentials
+scripts/bilibili_cookies.txt
+.trae/skills/bilibili-subtitle-extractor/cookies.txt
+
+# Generated output and user media
+videos/
+scripts/subtitle_raw.json
+scripts/subtitle_text.txt
+scripts/*.png
+stitch/*/screen.png
+scripts/*_Whisper字幕*.txt
+scripts/*_transcript.json
+scripts/*_b站字幕.txt
+scripts/*_时间戳.txt
+scripts/*_AI文稿*.txt
+scripts/*_AI文稿*.json
+scripts/oral-script-optimizer-samples/
+skills/theme-factory/theme-showcase.pdf
+.trae/skills/theme-factory/theme-showcase.pdf
+*.tar.gz
+
+# Editor and OS files
+.DS_Store
+Thumbs.db
